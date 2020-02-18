@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tank Points - by Undertanker</title>
+<script type="text/javascript">
+	function updateOutput() {
+		var form = document.getElementById("TankPointsCalculator");
+		var out = form.elements["Result"];
+		var num1 = parseInt(form.elements["Stamina"].value) * 1.5;
+		var num2 = parseInt(form.elements["Agility"].value) * 1.5;
+		var num3 = parseInt(form.elements["Block"].value) * 2;
+		var num4 = parseInt(form.elements["BlockValue"].value) * 0.33;
+		var num5 = parseInt(form.elements["Hit"].value) * 18;
+		var num6 = parseInt(form.elements["Crit"].value) * 9;
+		var num7 = parseInt(form.elements["Dodge"].value) * 10;
+		var num8 = parseInt(form.elements["Parry"].value) * 12.5;
+		var num9 = parseFloat(form.elements["Defense"].value) * 4;
+		var num10 = parseInt(form.elements["Armor"].value) / 50;
+		var num11 = parseInt(form.elements["Strength"].value) * 0.225;
+		var num12 = parseInt(form.elements["AttackPower"].value) * 0.1;
+		var num13 = parseFloat(form.elements["DPS"].value) * 3.5;
+		if (parseInt(form.elements["WeaponSkill"].value) < 6) {
+				var num14 = parseInt(form.elements["WeaponSkill"].value) * (12.24 + (parseFloat(form.elements["DPS"].value) * 0.056));
+			} else if (parseInt(form.elements["WeaponSkill"].value) < 11) {
+						var num14 = (5 * (12.24 + (parseFloat(form.elements["DPS"].value) * 0.056))) + ((parseInt(form.elements["WeaponSkill"].value) - 5) * (3.24 + (parseFloat(form.elements["DPS"].value) * 0.028))) ;
+				} else {
+						var num14 = (5 * (12.24 + (parseFloat(form.elements["DPS"].value) * 0.056))) + (5 * (3.24 + (parseFloat(form.elements["DPS"].value) * 0.028))) + ((parseInt(form.elements["WeaponSkill"].value) - 10) * (0.86 + (parseFloat(form.elements["DPS"].value) * 0.014))) ;
+					}
+		//calculate Tank Points
+		out.value = num1+num2+num3+num4+num5+num6+num7+num8+num9+num10+num11+num12+num13+num14;
+	}
+</script>
+</head>
+
+<body>
+<form id="TankPointsCalculator" oninput="updateOutput()">
+<!--input and output elements-->
+	<Table>
+		<tr>
+			<td>Stamina:</td>
+			<td><input name="Stamina" type="number" value="0" /></td>
+		</tr>
+		<tr>
+			<td>Agility:</td>
+			<td><input name="Agility" type="number" value="0" /></td>
+		</tr>
+		<tr>
+			<td>Block:</td>
+			<td><input name="Block" type="number" value="0" /></td>
+		</tr>
+		<tr>
+			<td>Block Value:</td>
+			<td><input name="BlockValue" type="number" value="0" /></td>
+		</tr>
+		<tr>
+			<td>Hit:</td>
+			<td><input name="Hit" type="number" value="0" /></td>
+		</tr>
+		<tr>
+			<td>Crit:</td>
+			<td><input name="Crit" type="number" value="0" /></td>
+		</tr>
+		<tr>
+			<td>Dodge:</td>
+			<td><input name="Dodge" type="number" value="0" /></td>
+		</tr>
+		<tr>
+			<td>Parry:</td>
+			<td><input name="Parry" type="number" value="0" /></td>
+		</tr>
+		<tr>
+			<td>Defense:</td>
+			<td><input name="Defense" type="number" value="0" /></td>
+		</tr>
+		<tr>
+			<td>Armor:</td>
+			<td><input name="Armor" type="number" value="0" /></td>
+		</tr>
+		<tr>
+			<td>Strength:</td>
+			<td><input name="Strength" type="number" value="0" /></td>
+		</tr>
+		<tr>
+			<td>Attack Power:</td>
+			<td><input name="AttackPower" type="number" value="0" /></td>
+		</tr>
+		<tr>
+			<td>DPS:</td>
+			<td><input name="DPS" type="number" value="0" /></td>
+		</tr>
+		<tr>
+			<td>Weapon Skill:</td>
+			<td><input name="WeaponSkill" type="number" value="0" /></td>
+		</tr>
+		<tr>
+			<td> </td>
+		</tr>
+		<tr>
+			<td> </td>
+		</tr>
+		<tr>
+			<td><b>Tank Points:</b></td>
+			<td><output name="Result">0</output></td>
+		</tr>
+	</table>
+	<input type="reset" value="Reset" />
+</form>
+</body>
+</html>
